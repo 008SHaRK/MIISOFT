@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #ff6700; // Figma narıncı
+}
+
+$primary-color: var(--primary-color);
+$navbar-bg: rgba(10, 10, 10, 0.6);
+$navbar-bg-scrolled: rgba(10, 10, 10, 0.9);
+$nav-link-color: #ffffff;
+$nav-link-hover-color: $primary-color; // Hover narıncı
+$collapse-bg: rgba(10, 10, 10, 0.8);
+$btn-bg: $primary-color;
+$btn-color: #ffffff;
+$btn-radius: 12px;

@@ -1,0 +1,179 @@
+@use "variables" as *;
+@use "buttons" as *;
+
+.custom-navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  background: $navbar-bg !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  transition: all 0.3s ease !important;
+
+  .logo {
+    height: 127px !important;
+    height: 57px !important;
+  }
+
+  /* UL background, border-radius, blur */
+  .navbar-nav {
+    background:transparent !important;
+    border: 1px solid rgba(69,69,69,1)!important;
+    border-radius: 22px !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 8px !important;
+  }
+
+  .nav-link {
+    color: $nav-link-color !important;
+    font-weight: 500 !important;
+    font-size: 15px !important;
+    padding: 10px 18px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+
+    &:hover {
+      background: rgba(38,38,38,1) !important;
+      color: $nav-link-color !important;
+    }
+
+    &.active {
+      background: rgba(38,38,38,1) !important;
+      color: $nav-link-color !important;
+    }
+  }
+
+  .main-btn {
+    @extend .main-btn;
+  }
+
+  &.scrolled {
+    background: $navbar-bg-scrolled !important;
+    backdrop-filter: blur(30px) !important;
+  }
+}
+@media (max-width: 992px) {
+  .custom-navbar {
+    position: relative;
+
+    /* Toggle hamburger + X */
+    .navbar-toggler {
+      position: absolute; // sağda yapışdırmaq üçün absolute
+      right: 15px;
+      top: 15px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2200;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto;
+        transition: opacity 0.2s ease;
+      }
+
+      &::after {
+        content: "✕";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 38px;
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      &[aria-expanded="true"] img {
+        opacity: 0;
+      }
+
+      &[aria-expanded="true"]::after {
+        opacity: 1;
+      }
+    }
+
+    .navbar-brand {
+      position: absolute;
+      left: 15px;
+      top: 10px;
+      z-index: 2200;
+
+      img {
+        height: 50px !important;
+      }
+    }
+
+    /* Mobil menyu overlay */
+    .navbar-collapse {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(
+        145deg,
+        rgba(10, 10, 10, 0.92) 0%,
+        rgba(20, 20, 20, 0.88) 100%
+      );
+      backdrop-filter: blur(30px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+      z-index: 2100;
+
+      &.show {
+        transform: translateX(0);
+      }
+
+      ul.navbar-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        padding: 0;
+        margin: 0;
+        background: none;
+        border: none;
+
+        .nav-link {
+          font-size: 22px;
+          color: #fff; // Yazılar həmişə ağ
+          font-weight: 500;
+          padding: 12px 35px;
+          border-radius: 10px;
+          transition: all 0.35s ease;
+
+          &:hover {
+            background-color: #ff6700 !important; // Hover arxa plan narıncı
+            color: #fff !important; // Yazı ağ qalır
+          }
+
+          &.active {
+            background-color: #ff6700;
+            color: #fff;
+          }
+        }
+      }
+    }
+#nav-nav {
+    width: 310px !important;
+    height: 350px !important;
+    }
+
+    .main-btn {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+// ===============================
+// 🌈 CSS root dəyişənlər
+// ===============================
+:root {
+  --primary-color: #ff6700;
+}
+
+// ===============================
+// ⚙️ SCSS dəyişənlər
+// ===============================
+$primary-color: #ff6700;
+$bg-color: #000;
+$text-color: #bbb;
+$link-color: #aaa;
+$link-hover: $primary-color;
+$divider-color: rgba(255, 255, 255, 0.1);
+$heading-color: #fff;
+$font-family: "Poppins", sans-serif;
+$social-hover-color: $primary-color;
+
+// ===============================
+// 🦶 Footer Dizaynı
+// ===============================
+.footer {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: $font-family;
+  padding: 3rem 0;
+
+  .footer-logo img {
+    height: 40px;
+  }
+
+  h6 {
+    font-size: 15px;
+    font-weight: 600;
+    color: $heading-color;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 14px;
+    color: $text-color;
+    line-height: 1.6;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 6px;
+
+      a {
+        color: $link-color;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $link-hover;
+        }
+      }
+    }
+  }
+
+  hr {
+    border-color: $divider-color;
+    margin: 2rem 0;
+  }
+
+  // ===============================
+  // 🔻 Footer Bottom (solda yazı, sağda ikonlar)
+  // ===============================
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0;
+      font-size: 13px;
+      color: $text-color;
+    }
+
+    .social-icons {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
+
+      a {
+        color: $link-color;
+        font-size: 18px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          color: $social-hover-color;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  // 📱 Responsive
+  @media (max-width: 768px) {
+    .footer-bottom {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  }
+}
