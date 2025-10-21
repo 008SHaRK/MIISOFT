@@ -1,0 +1,143 @@
+@use "variables" as *;
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* əlavə olundu — hər şey mərkəzdə düzülür */
+  background: #000;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+
+  .hero-title {
+    font-family: Gilroy;
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 64px;
+    max-width: 880px; /* eyni fiqma genişliyi */
+    margin: 125px auto 24px auto; /* auto ilə mərkəzdə */
+  }
+
+  .hero-text {
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #fff;
+    max-width: 650px; /* yazı eni balanslı */
+    margin: 0 auto 34px auto;
+    opacity: 0.9;
+  }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+    .main-btn {
+      border-radius: 12px;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      text-decoration: none;
+
+      &:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+    }
+
+    .orange-btn {
+      background: $btn-bg !important;
+      color: $btn-color !important;
+    }
+
+    .dark-btn {
+      background: #ffffff1a !important;
+      backdrop-filter: blur(44px) !important;
+      color: #fff !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+      &:hover {
+        background: #ffffff33 !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .scroll-down {
+    margin-top: 60px;
+
+    i {
+      font-size: 28px;
+      color: #fff;
+      animation: bounce 1.5s infinite;
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* Responsivlik */
+  @media (max-width: 992px) {
+    .hero-title {
+      font-size: 44px;
+      line-height: 52px;
+      max-width: 600px;
+      margin: 80px auto 20px auto;
+    }
+
+    .hero-text {
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 80px 20px;
+
+    .hero-title {
+      font-size: 32px;
+      line-height: 40px;
+      margin: 60px 0 16px 0;
+    }
+
+    .hero-text {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      .main-btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 60px 16px;
+
+    .hero-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    .hero-buttons .main-btn {
+      max-width: 240px;
+    }
+  }
+}

@@ -1,4 +1,57 @@
 @use "variables";
 @use "buttons";
 @use "header";
+@use "herosection";
+@use "whyus";
+@use "meet-us";
+@use "expertise";
+@use "promise";
+@use "partners";
+@use "testimonial";
+@use "project";
+@use "mastery";
+@use "connect";
 @use "footer";
+
+body {
+  background-color: #000000;
+  color: #fff;
+  font-family: "Gilroy", sans-serif;
+  overflow-x: hidden;
+}
+// Universal layout mərkəzləşdirmə
+.section-container {
+  width: 100%;
+  max-width: 1440px; 
+  margin: 0 auto;
+  padding: 0 200px; 
+  box-sizing: border-box;
+}
+
+/* Hero section */
+.hero-section {
+  @extend .section-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Why-us section */
+.why-us-section {
+  @extend .section-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* About (Biz kimik) section */
+.about-section {
+  @extend .section-container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+}

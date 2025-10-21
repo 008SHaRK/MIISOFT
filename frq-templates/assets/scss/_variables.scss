@@ -1,13 +1,20 @@
-:root {
-  --primary-color: #ff6700; // Figma narıncı
-}
+// === GLOBAL VARIABLES ===
 
-$primary-color: var(--primary-color);
+// Rənglər
+$primary-color: #ff6600;
+$white-color: #ffffff;
+$black-color: #000000;
+
+// Butonlar
+$btn-bg: $primary-color;
+$btn-color: $white-color;
+$btn-radius: 12px;
+
+// Navbar rəngləri
 $navbar-bg: rgba(10, 10, 10, 0.6);
 $navbar-bg-scrolled: rgba(10, 10, 10, 0.9);
 $nav-link-color: #ffffff;
-$nav-link-hover-color: $primary-color; // Hover narıncı
+$nav-link-hover-color: $primary-color;
 $collapse-bg: rgba(10, 10, 10, 0.8);
-$btn-bg: $primary-color;
-$btn-color: #ffffff;
-$btn-radius: 12px;
+$btn-bg: #ff6700;
+

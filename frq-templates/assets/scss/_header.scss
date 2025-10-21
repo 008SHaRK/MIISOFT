@@ -1,24 +1,28 @@
 @use "variables" as *;
 @use "buttons" as *;
 
+
 .custom-navbar {
-  position: sticky !important;
+
   top: 0 !important;
-  z-index: 1000 !important;
-  background: $navbar-bg !important;
-  backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+  z-index: 10 !important;
+  background: transparent !important; 
+  backdrop-filter: none !important;
+  border-bottom: none !important;
   transition: all 0.3s ease !important;
+  max-width: 1440px;         /* digərləri ilə eyni eni */
+  margin: 0 auto;            /* ortalama */
+  padding: 2 180px !important; /* sağ-sol məsafə eyni olsun */
+
 
   .logo {
-    height: 127px !important;
     height: 57px !important;
   }
 
-  /* UL background, border-radius, blur */
+
   .navbar-nav {
-    background:transparent !important;
-    border: 1px solid rgba(69,69,69,1)!important;
+    background: transparent !important;
+    border: 1px solid rgba(69, 69, 69, 1) !important;
     border-radius: 22px !important;
     backdrop-filter: blur(10px) !important;
     padding: 8px !important;
@@ -33,12 +37,12 @@
     transition: all 0.3s ease !important;
 
     &:hover {
-      background: rgba(38,38,38,1) !important;
+      background: rgba(38, 38, 38, 1) !important;
       color: $nav-link-color !important;
     }
 
     &.active {
-      background: rgba(38,38,38,1) !important;
+      background: rgba(38, 38, 38, 1) !important;
       color: $nav-link-color !important;
     }
   }
@@ -47,18 +51,22 @@
     @extend .main-btn;
   }
 
+
   &.scrolled {
-    background: $navbar-bg-scrolled !important;
-    backdrop-filter: blur(30px) !important;
+    background: rgba(10, 10, 10, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
 }
+
+
 @media (max-width: 992px) {
   .custom-navbar {
     position: relative;
 
     /* Toggle hamburger + X */
     .navbar-toggler {
-      position: absolute; // sağda yapışdırmaq üçün absolute
+      position: absolute;
       right: 15px;
       top: 15px;
       width: 50px;
@@ -119,12 +127,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background: linear-gradient(
-        145deg,
-        rgba(10, 10, 10, 0.92) 0%,
-        rgba(20, 20, 20, 0.88) 100%
-      );
-      backdrop-filter: blur(30px);
+      backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -137,27 +140,30 @@
         transform: translateX(0);
       }
 
+      /* Burada border, radius, blur və padding ləğv olunur */
       ul.navbar-nav {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 25px;
-        padding: 0;
+        padding: 0 !important;
         margin: 0;
-        background: none;
-        border: none;
+        background: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        backdrop-filter: none !important;
 
         .nav-link {
           font-size: 22px;
-          color: #fff; // Yazılar həmişə ağ
+          color: #fff;
           font-weight: 500;
           padding: 12px 35px;
           border-radius: 10px;
           transition: all 0.35s ease;
 
           &:hover {
-            background-color: #ff6700 !important; // Hover arxa plan narıncı
-            color: #fff !important; // Yazı ağ qalır
+            background-color: #ff6700 !important;
+            color: #fff !important;
           }
 
           &.active {
@@ -167,9 +173,10 @@
         }
       }
     }
-#nav-nav {
-    width: 310px !important;
-    height: 350px !important;
+
+    #nav-nav {
+      width: 310px !important;
+      height: 350px !important;
     }
 
     .main-btn {

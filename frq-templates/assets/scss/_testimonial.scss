@@ -1,0 +1,208 @@
+.testimonial-section {
+  background: linear-gradient(180deg, #000 60%, #1a0b02 100%);
+  color: #fff;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+
+  .testimonial-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 60px;
+    }
+  }
+
+  /* Sol tərəf */
+  .testimonial-left {
+    flex: 1;
+    text-align: center;
+
+    @media (min-width: 992px) {
+      text-align: left;
+    }
+
+    .testimonial-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 103, 0, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .testimonial-name {
+      font-family: "Gilroy";
+      font-size: 36px;
+      font-weight: 800;
+      margin-top: 18px;
+    }
+
+    .testimonial-role {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+  }
+
+  /* Sağ tərəf */
+  .testimonial-right {
+    flex: 1.2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .testimonial-card {
+      position: relative;
+      background: rgba(20, 20, 20, 0.9);
+      border-radius: 24px;
+      box-shadow: 0 0 30px rgba(255, 103, 0, 0.2);
+      padding: 40px;
+      max-width: 600px;
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(6px);
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Dırnaq işarəsi — solda, yarısı kartın içində yarısı altda */
+      &::before {
+        content: "”";
+        position: absolute;
+        bottom: -200px;
+        right: 10px;
+        font-size: 180px;
+        font-weight: 900;
+        color: rgba(255, 103, 0, 0.3);
+        z-index: 1;
+        pointer-events: none;
+        transform: translateY(-40px);
+        filter: blur(1px);
+      }
+
+      /* Parıltı effekti */
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -110px;
+        right: 20px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 103, 0, 0.45),
+          rgba(255, 103, 0, 0) 80%
+        );
+        border-radius: 50%;
+        filter: blur(40px);
+        z-index: 0;
+      }
+
+      .testimonial-text {
+        font-size: 17px;
+        line-height: 1.8;
+        color: #ddd;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .testimonial-rating {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        z-index: 2;
+
+        .fa-star {
+          color: #ff6700;
+        }
+
+        span {
+          color: #ccc;
+          font-weight: 500;
+        }
+      }
+    }
+
+    /* Oxlar — sabit */
+    .testimonial-nav {
+      position: absolute;
+      bottom: -70px;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    /* Sabitlik üçün əlavə sinif */
+    .fixed-nav {
+      position: absolute;
+      bottom: -70px;
+      left: 0;
+      transform: translateY(0); /* animasiyadan asılı olmayacaq */
+    }
+
+    .arrow {
+      background: none;
+      border: none;
+      width: 30px;
+      height: 55px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      img {
+        width: 30px;
+        height: 55px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px rgba(255, 103, 0, 0.6));
+      }
+    }
+  }
+
+  /* Fade animasiyaları */
+  .fade-in-left {
+    animation: fadeLeft 0.8s ease both;
+  }
+
+  .fade-in-right {
+    animation: fadeRight 0.8s ease both;
+  }
+
+  @keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
