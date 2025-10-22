@@ -1,0 +1,36 @@
+.about-section {
+  .breadcrumb {
+    background: none !important;
+    padding: 0;
+    margin-bottom: 32px;
+
+    .breadcrumb-item {
+      font-family: "Gilroy", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      color: rgba(255, 255, 255, 0.6);
+
+      a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #ff7b00;
+        }
+      }
+
+      &.active {
+        color: #fff !important;
+        font-weight: 700;
+      }
+
+      & + .breadcrumb-item::before {
+        color: rgba(255, 255, 255, 0.4);
+        content: "/";
+        margin: 0 8px;
+      }
+    }
+  }
+}
