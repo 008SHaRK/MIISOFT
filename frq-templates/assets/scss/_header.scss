@@ -1,24 +1,24 @@
 @use "variables" as *;
 @use "buttons" as *;
 
-
 .custom-navbar {
-
+  position: relative;
   top: 0 !important;
   z-index: 10 !important;
-  background: transparent !important; 
+  background: transparent !important;
   backdrop-filter: none !important;
   border-bottom: none !important;
   transition: all 0.3s ease !important;
-  max-width: 1440px;         /* digərləri ilə eyni eni */
-  margin: 0 auto;            /* ortalama */
-  padding: 2 180px !important; /* sağ-sol məsafə eyni olsun */
-
+  max-width: 1440px; /* Layout eni */
+  margin: 0 auto; /* Ortaya hizalanma */
+  padding: 0 180px !important; /* sağ və sol boşluqlar */
+margin-top: 25px;
+  display: flex;
+  align-items: center;
 
   .logo {
     height: 57px !important;
   }
-
 
   .navbar-nav {
     background: transparent !important;
@@ -51,7 +51,6 @@
     @extend .main-btn;
   }
 
-
   &.scrolled {
     background: rgba(10, 10, 10, 0.85) !important;
     backdrop-filter: blur(20px) !important;
@@ -59,12 +58,18 @@
   }
 }
 
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .custom-navbar {
+    padding: 0 100px !important;
+  }
+}
 
 @media (max-width: 992px) {
   .custom-navbar {
+    padding: 0 40px !important;
     position: relative;
 
-    /* Toggle hamburger + X */
     .navbar-toggler {
       position: absolute;
       right: 15px;
@@ -120,7 +125,6 @@
       }
     }
 
-    /* Mobil menyu overlay */
     .navbar-collapse {
       position: fixed;
       top: 0;
@@ -140,9 +144,7 @@
         transform: translateX(0);
       }
 
-      /* Burada border, radius, blur və padding ləğv olunur */
       ul.navbar-nav {
-        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 25px;

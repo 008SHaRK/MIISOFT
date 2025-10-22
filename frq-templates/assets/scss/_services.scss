@@ -1,0 +1,119 @@
+.breadcrumb-section {
+  background: transparent;
+  color: #fff;
+  font-family: "Gilroy", sans-serif;
+  max-width: 1440px; /* Navbar və section-larla eyni */
+  margin: 0 auto;
+  padding: 120px 200px 80px; /* eyni sağ-sol məsafə */
+
+  .breadcrumb {
+    background: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0 0 12px 0;
+    gap: 8px;
+
+    .breadcrumb-item {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+
+      a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: 0.3s;
+
+        &:hover {
+          color: #ff6a00;
+        }
+      }
+
+      &.active {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      & + .breadcrumb-item::before {
+        content: "/";
+        color: rgba(255, 255, 255, 0.3);
+        margin: 0 6px;
+      }
+    }
+  }
+
+  .page-title {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 56px;
+    color: #fff;
+    margin: 0;
+  }
+
+  /* 📱 Responsive */
+  @media (max-width: 1200px) {
+    padding: 100px 100px 60px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 80px 40px 40px;
+
+    .page-title {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    .breadcrumb {
+      justify-content: center;
+    }
+  }
+}
+.decor-object {
+  position: absolute;
+  top: 52%;
+  right: 110px; /* eyni paddinglə hizalanır */
+  transform: translateY(-55%);
+  z-index: 2;
+  pointer-events: none;
+
+  img {
+    width: 250px;
+    height: auto;
+    opacity: 0.9;
+  
+  }
+
+
+  @media (max-width: 1400px) {
+    right: 120px;
+    img {
+      width: 360px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    right: 60px;
+    top: 65%;
+    img {
+      width: 300px;
+      opacity: 0.8;
+    }
+  }
+
+  @media (max-width: 992px) {
+    top: auto;
+    bottom: -40px;
+    right: 50%;
+    transform: translateX(50%) translateY(0);
+    img {
+      width: 250px;
+      opacity: 0.7;
+      transform: scaleX(-1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

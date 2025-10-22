@@ -1,9 +1,19 @@
+@use "variables" as *;
+
 .testimonial-section {
   background: linear-gradient(180deg, #000 60%, #1a0b02 100%);
   color: #fff;
-  padding: 100px 0;
+  padding: 160px 0 120px;
   position: relative;
   overflow: hidden;
+
+  /* 🧩 Container uyğunluğu */
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 200px; // sağ-sol məsafə eyni qalsın
+    box-sizing: border-box;
+  }
 
   .testimonial-wrapper {
     display: flex;
@@ -73,7 +83,6 @@
         transform: translateY(-5px);
       }
 
-      /* Dırnaq işarəsi — solda, yarısı kartın içində yarısı altda */
       &::before {
         content: "”";
         position: absolute;
@@ -88,7 +97,6 @@
         filter: blur(1px);
       }
 
-      /* Parıltı effekti */
       &::after {
         content: "";
         position: absolute;
@@ -133,7 +141,6 @@
       }
     }
 
-    /* Oxlar — sabit */
     .testimonial-nav {
       position: absolute;
       bottom: -70px;
@@ -145,12 +152,11 @@
       pointer-events: auto;
     }
 
-    /* Sabitlik üçün əlavə sinif */
     .fixed-nav {
       position: absolute;
       bottom: -70px;
       left: 0;
-      transform: translateY(0); /* animasiyadan asılı olmayacaq */
+      transform: translateY(0);
     }
 
     .arrow {
@@ -203,6 +209,25 @@
     to {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  /* 📱 Responsive düzəlişlər */
+  @media (max-width: 1200px) {
+    .container {
+      padding: 0 100px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .container {
+      padding: 0 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 30px;
     }
   }
 }

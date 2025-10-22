@@ -11,6 +11,8 @@
 @use "project";
 @use "mastery";
 @use "connect";
+@use "services";
+@use "ourproject";
 @use "footer";
 
 body {
@@ -19,13 +21,26 @@ body {
   font-family: "Gilroy", sans-serif;
   overflow-x: hidden;
 }
-// Universal layout mərkəzləşdirmə
+// 🔸 Universal layout container (bütün section-larda eyni hizalanma)
 .section-container {
   width: 100%;
-  max-width: 1440px; 
-  margin: 0 auto;
-  padding: 0 200px; 
+  max-width: 1440px;  // səhifə eni limit
+  margin: 0 auto;     // ortada hizalanır
+  padding: 0 200px;   // sağ və sol boşluqlar
   box-sizing: border-box;
+
+  // 📱 Responsive düzəlişlər
+  @media (max-width: 1200px) {
+    padding: 0 100px;
+  }
+
+  @media (max-width: 992px) {
+    padding: 0 60px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 30px;
+  }
 }
 
 /* Hero section */
@@ -50,6 +65,15 @@ body {
 /* About (Biz kimik) section */
 .about-section {
   @extend .section-container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 56px;
+}
+
+/* Services section */
+.solutions-section {
+ @extend .section-container;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,10 +1,23 @@
+@use "variables" as *;
+
 .partners-section {
   width: 100%;
   background: #000;
-  padding: 80px 0;
+  padding: 120px 0; // digər section-larla uyğun
   display: flex;
   justify-content: center;
   align-items: center;
+
+  /* 📦 Container uyğunluğu */
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 200px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .partners-container {
     display: flex;
@@ -12,10 +25,10 @@
     align-items: center;
     gap: 90px;
     flex-wrap: wrap;
-    max-width: 1200px;
-    width: 90%;
+    width: 100%;
+    overflow: hidden;
 
-    // Slick Carousel üçün əsas stil düzəlişləri
+    /* Slick Carousel üçün əsas tənzimləmələr */
     .slick-slide {
       display: flex !important;
       justify-content: center;
@@ -33,7 +46,7 @@
     }
   }
 
-  // Hər bir partnyor loqosu
+  /* 🔹 Hər bir partnyor loqosu */
   .partner {
     display: flex !important;
     justify-content: center;
@@ -51,7 +64,6 @@
       transition: all 0.6s ease;
     }
 
-    // Sol və sağdakı loqolar üçün fade effekti
     &.fade-left,
     &.fade-right {
       opacity: 0.4;
@@ -59,7 +71,6 @@
       filter: grayscale(90%) brightness(0.8) contrast(0.8);
     }
 
-    // Ortadakı loqo (parlaq)
     &.center {
       opacity: 1;
       transform: scale(1.1);
@@ -67,7 +78,6 @@
       z-index: 2;
     }
 
-    // Hover zamanı daha da parlaq effekt
     &:hover {
       opacity: 1;
       transform: scale(1.15);
@@ -76,23 +86,45 @@
     }
   }
 
-  // 📱 Responsiv dizayn
-  @media (max-width: 992px) {
+  /* 📱 Responsiv */
+  @media (max-width: 1200px) {
+    .container {
+      padding: 0 100px;
+    }
+
     .partners-container {
-      gap: 60px;
+      gap: 70px;
+    }
+
+    .partner img {
+      width: 120px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .container {
+      padding: 0 60px;
+    }
+
+    .partners-container {
+      gap: 50px;
     }
 
     .partner {
       height: 48px;
 
       img {
-        width: 120px;
+        width: 110px;
       }
     }
   }
 
   @media (max-width: 768px) {
-    padding: 50px 0;
+    padding: 80px 0;
+
+    .container {
+      padding: 0 30px;
+    }
 
     .partners-container {
       gap: 40px;
@@ -102,7 +134,7 @@
       height: 40px;
 
       img {
-        width: 100px;
+        width: 90px;
       }
     }
   }
