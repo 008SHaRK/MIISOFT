@@ -1,13 +1,10 @@
-@use "variables" as *;
-
 .experts-section {
   background: #000;
   position: relative;
   overflow: hidden;
-  padding: 100px 0;
+  padding: 80px 0; // 🔹 azacıq daha sıx görünüş üçün
   color: #fff;
 
-  /* 📦 Container hizalanması */
   .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -15,35 +12,61 @@
     box-sizing: border-box;
   }
 
-  .section-title {
-    font-family: Gilroy, sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: #fff;
-  }
+  /* 🔹 Breadcrumb (hazır tərz qorundu) */
+  .breadcrumb-wrapper {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
 
-  .section-subtitle {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-    margin-top: 4px;
-  }
+    .breadcrumb {
+      background: none;
+      padding: 0;
+      margin: 0;
+      font-family: Gilroy, sans-serif;
 
-  .main-btn.dark-btn {
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px 22px;
-    font-size: 14px;
-    transition: all 0.3s ease;
+      .breadcrumb-item {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.6);
 
-    &:hover {
-      background: #ff7b00;
-      border-color: #ff7b00;
-      color: #fff;
+        a {
+               color: rgba(255, 255, 255, 0.6);
+
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+
+        &.active {
+          color: #fff;
+          font-weight: 700;
+        }
+
+        & + .breadcrumb-item::before {
+          color: rgba(255, 255, 255, 0.4);
+          content: "/";
+          padding: 0 8px;
+        }
+      }
     }
   }
 
-  /* ==== Kartlar ==== */
+  /* 🔹 Başlıq */
+  .section-title {
+    font-family: Gilroy, sans-serif;
+    font-size: 36px; // 🔸 əvvəl 42 idi — bir az balacaldıq
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+
+  /* 🔹 Kart grid */
+  .row.g-4 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem; // 🔸 Kartlar arası məsafə azaldıldı
+  }
+
   .expert-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -51,24 +74,20 @@
     overflow: hidden;
     display: flex;
     align-items: stretch;
-    gap: 20px;
-    padding: 20px;
+    gap: 18px; // 🔸 iç məsafə bir qədər azaldıldı
+    padding: 18px;
     transition: all 0.4s ease;
-    box-shadow: 0 0 0 rgba(255, 123, 0, 0); // 🔹 başlanğıcda parıltı yoxdur
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
 
     &:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.08);
-      border-color: #ff7b00;
-      box-shadow: 0 0 18px rgba(255, 123, 0, 0.5); // 🟠 narıncı parıltı effekti
+      border-color: #ff9c66;
+      box-shadow: 0 0 15px rgba(255, 180, 80, 0.5);
     }
 
-    /* 🔹 Şəkil bloku */
     .card-image {
       flex: 0 0 45%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       border-radius: 18px;
       overflow: hidden;
 
@@ -77,7 +96,6 @@
         height: 100%;
         object-fit: cover;
         aspect-ratio: 16 / 9;
-        border-radius: 18px;
         filter: grayscale(100%);
         transition: all 0.6s ease;
       }
@@ -88,25 +106,22 @@
       transform: scale(1.05);
     }
 
-    /* 🔹 Məzmun hissəsi */
     .card-content {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 100%;
 
       .card-title {
-        font-size: 18px;
+        font-size: 17px; // 🔸 əvvəl 18 idi
         font-weight: 700;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
 
       .card-text {
-        flex: 1;
-        font-size: 14px;
+        font-size: 13.5px; // 🔸 bir qədər balaca
         color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 14px;
+        margin-bottom: 12px;
       }
 
       .read-more {
@@ -121,25 +136,26 @@
         }
 
         &:hover {
-          color: #ff7b00;
+          color: #ffb566;
         }
       }
     }
   }
 
-  /* ==== Dekorasiya ==== */
+  /* 🔹 Dekorasiya */
   .decor-object {
     position: absolute;
     bottom: 60px;
     right: 115px;
+    z-index: 0;
 
     img {
-      width: 160px;
+      width: 150px;
       opacity: 0.9;
     }
   }
 
-  /* ==== Mobil uyğunlaşma ==== */
+  /* 🔹 Mobil uyğunlaşma */
   @media (max-width: 1200px) {
     .container {
       padding: 0 100px;
@@ -152,13 +168,8 @@
     }
 
     .section-title {
-      font-size: 32px;
+      font-size: 30px;
       text-align: center;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      margin-bottom: 20px;
     }
 
     .expert-card {
@@ -167,7 +178,6 @@
     }
 
     .card-image {
-      flex: 0 0 auto;
       width: 100%;
       height: 220px;
     }
@@ -182,21 +192,4 @@
       padding: 0 30px;
     }
   }
-}
-
-/* 🔧 Kart sətirlərini bərabərləşdir */
-.row.g-4 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-
-.row.g-4 > [class*="col-"] {
-  display: flex;
-}
-
-.expert-card {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
 }
