@@ -1,0 +1,119 @@
+@use "variables" as *;
+
+.projects-section {
+  background: radial-gradient(circle at top left, #0d0d0d 0%, #1a1a1a 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+
+  /* Başlıqlar */
+  .section-title {
+    font-family: Gilroy, sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+  }
+
+  .section-subtitle {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .btn {
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 8px 24px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #ff7b00;
+      border-color: #ff7b00;
+      color: #fff;
+    }
+  }
+
+  /* 📐 Grid düzülüş */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 365px 365px;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  /* 🧩 Kartlar */
+  .project-card {
+    border-radius: 24px;
+    overflow: hidden;
+    background: transparent;
+    position: relative;
+    transition: transform 0.4s ease;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+
+    &.orange {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    &.pink {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    &.dark {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    &.green {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+  }
+
+  /* 🌀 Dekor obyekti */
+  .decor-object {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    z-index: 3;
+
+    img {
+      width: 200px;
+      opacity: 0.4;
+    }
+  }
+
+  /* 📱 Mobil uyğunlaşma */
+  @media (max-width: 992px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      gap: 16px;
+    }
+
+    .project-card {
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    .section-title {
+      font-size: 32px;
+    }
+  }
+}

@@ -1,0 +1,195 @@
+.experts-section {
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0; // 🔹 azacıq daha sıx görünüş üçün
+  color: #fff;
+
+  .container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 200px;
+    box-sizing: border-box;
+  }
+
+  /* 🔹 Breadcrumb (hazır tərz qorundu) */
+  .breadcrumb-wrapper {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+
+    .breadcrumb {
+      background: none;
+      padding: 0;
+      margin: 0;
+      font-family: Gilroy, sans-serif;
+
+      .breadcrumb-item {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.6);
+
+        a {
+               color: rgba(255, 255, 255, 0.6);
+
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+
+        &.active {
+          color: #fff;
+          font-weight: 700;
+        }
+
+        & + .breadcrumb-item::before {
+          color: rgba(255, 255, 255, 0.4);
+          content: "/";
+          padding: 0 8px;
+        }
+      }
+    }
+  }
+
+  /* 🔹 Başlıq */
+  .section-title {
+    font-family: Gilroy, sans-serif;
+    font-size: 36px; // 🔸 əvvəl 42 idi — bir az balacaldıq
+    font-weight: 900;
+    margin-bottom: 30px;
+  }
+
+  /* 🔹 Kart grid */
+  .row.g-4 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem; // 🔸 Kartlar arası məsafə azaldıldı
+  }
+
+  .expert-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    gap: 18px; // 🔸 iç məsafə bir qədər azaldıldı
+    padding: 18px;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #ff9c66;
+      box-shadow: 0 0 15px rgba(255, 180, 80, 0.5);
+    }
+
+    .card-image {
+      flex: 0 0 45%;
+      border-radius: 18px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+        filter: grayscale(100%);
+        transition: all 0.6s ease;
+      }
+    }
+
+    &:hover .card-image img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .card-title {
+        font-size: 17px; // 🔸 əvvəl 18 idi
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+
+      .card-text {
+        font-size: 13.5px; // 🔸 bir qədər balaca
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 12px;
+      }
+
+      .read-more {
+        color: #fff;
+        font-weight: 500;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        i {
+          margin-left: 6px;
+          font-size: 13px;
+        }
+
+        &:hover {
+          color: #ffb566;
+        }
+      }
+    }
+  }
+
+  /* 🔹 Dekorasiya */
+  .decor-object {
+    position: absolute;
+    bottom: 60px;
+    right: 115px;
+    z-index: 0;
+
+    img {
+      width: 150px;
+      opacity: 0.9;
+    }
+  }
+
+  /* 🔹 Mobil uyğunlaşma */
+  @media (max-width: 1200px) {
+    .container {
+      padding: 0 100px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .container {
+      padding: 0 60px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .expert-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 220px;
+    }
+
+    .decor-object {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 30px;
+    }
+  }
+}

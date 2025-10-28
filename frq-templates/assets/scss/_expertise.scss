@@ -1,0 +1,137 @@
+@use "variables" as *;
+
+.solutions-section {
+  width: 1440px;
+  max-width: 100%;
+  padding: 160px 200px 120px;
+  margin: 0 auto;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+
+  .solutions-title {
+    font-family: Gilroy;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 56px;
+    margin-bottom: 12px;
+  }
+
+  .solutions-subtitle {
+    font-family: Gilroy;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 70px;
+  }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .solution-card {
+    width: 310px;
+    height: 364px;
+    padding: 40px;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    .icon-bg {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 22px;
+
+      i {
+        font-size: 26px;
+        color: #fff;
+      }
+    }
+
+    h4 {
+      font-family: Gilroy;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0.4px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font-family: Gilroy;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.4px;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+  
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+      border: 1px solid transparent;
+      border-image: linear-gradient(
+          313.47deg,
+          rgba(255, 103, 0, 0.35) 0.99%,
+          rgba(255, 255, 255, 0.2) 98.78%
+        )
+        1;
+      box-shadow: 0 0 25px 4px rgba(255, 103, 0, 0.25); /* 🔸 yuvarlaq, soft parıltı */
+    }
+  }
+
+  /* 📱 RESPONSIVE */
+  @media (max-width: 1200px) {
+    padding: 120px 100px;
+    .solutions-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 100px 40px;
+    .solutions-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .solution-card {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      text-align: center;
+
+      .icon-bg {
+        margin: 0 auto 20px;
+      }
+
+      h4,
+      p {
+        text-align: center;
+      }
+    }
+  }
+}

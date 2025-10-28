@@ -1,0 +1,301 @@
+@use "variables" as *;
+
+.about-section {
+  width: 1440px;
+  max-width: 100%;
+  min-height: 756px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: #fff;
+  padding: 60px 200px; // 🔹 yuxarı boşluq azaldıldı
+  gap: 56px;
+  margin-inline: auto; // 🔹 yuxarı-aşağı margin-lərə toxunmur
+  margin-top: -40px;   // 🔹 yuxarı qaldırır
+  overflow: hidden;
+
+
+  /* 🔸 Soldakı slayder kartı */
+  .about-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-bg {
+      width: 432px;
+      height: 462px;
+      padding: 40px;
+      border-radius: 24px;
+      background: #ffffff0d;
+      backdrop-filter: blur(64px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      border-radius: 24px;
+      overflow: hidden;
+
+      .carousel-item img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 24px;
+        filter: grayscale(100%) brightness(0.85);
+        transition: transform 1s ease, filter 0.5s ease;
+      }
+    }
+  }
+
+  /* 🔹 Sağ tərəf */
+  .about-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .about-content {
+      max-width: 512px;
+      height: 556px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      h2 {
+        font-family: Gilroy;
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+      }
+
+      p:first-of-type {
+        font-family: Gilroy;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.4px;
+        opacity: 0.7;
+        margin-bottom: 10px;
+      }
+
+      p:nth-of-type(2) {
+        font-family: Gilroy;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.4px;
+        opacity: 1;
+        margin-bottom: 24px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 30px 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+
+        li {
+          position: relative;
+          padding-left: 28px;
+          font-family: Gilroy;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: 0.4px;
+          color: #e0e0e0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff6600, #ff8533);
+            border-radius: 2px;
+          }
+        }
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 16px;
+        margin-top: 32px;
+
+        .main-btn {
+          border-radius: $btn-radius;
+          padding: 12px 24px;
+          font-family: Gilroy;
+          font-weight: 600;
+          font-size: 15px;
+          cursor: pointer;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          border: none;
+
+          &:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+          }
+        }
+
+        .orange-btn {
+          background: $btn-bg !important;
+          color: $btn-color !important;
+        }
+
+        .dark-btn {
+          background: #ffffff1a !important;
+          backdrop-filter: blur(44px) !important;
+          color: #fff !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+          &:hover {
+            background: #ffffff33 !important;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  /* 📱 RESPONSIVE VERSİYALAR */
+  /* Tablet (992px və aşağı) */
+  @media (max-width: 992px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 60px;
+    gap: 40px;
+
+    .about-left {
+      .card-bg {
+        width: 400px;
+        height: 420px;
+        padding: 30px;
+      }
+
+      .carousel-item img {
+        width: 420px;
+        height: 420px;
+      }
+    }
+
+    .about-right .about-content {
+      text-align: center;
+      align-items: center;
+      height: auto;
+
+      ul {
+        align-items: center;
+
+        li {
+          padding-left: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+
+      .btn-group {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .main-btn {
+          width: 100%;
+          max-width: 260px;
+        }
+      }
+    }
+  }
+
+  /* Mobil (768px və aşağı) */
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+    gap: 32px;
+
+    .about-left {
+      .card-bg {
+        width: 320px;
+        height: 340px;
+        padding: 24px;
+      }
+
+      .carousel-item img {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    .about-right .about-content {
+      h2 {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      ul {
+        gap: 12px;
+        li {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  /* Kiçik mobil (480px və aşağı) */
+  @media (max-width: 480px) {
+    padding: 50px 16px;
+
+    .about-left {
+      .card-bg {
+        width: 260px;
+        height: 280px;
+        padding: 16px;
+      }
+
+      .carousel-item img {
+        width: 260px;
+        height: 260px;
+      }
+    }
+
+    .about-right .about-content {
+      h2 {
+        font-size: 26px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+
+      ul li {
+        font-size: 13px;
+      }
+
+      .btn-group .main-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+      }
+    }
+  }
+}

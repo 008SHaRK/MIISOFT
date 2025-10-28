@@ -1,0 +1,125 @@
+.faq-section {
+  background: radial-gradient(circle at bottom right, #1a0b02, #000);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  .breadcrumb {
+    background: none;
+    padding: 0;
+    margin-bottom: 16px;
+
+    .breadcrumb-item {
+      font-family: Gilroy, sans-serif;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+
+      a {
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        &:hover {
+          color: #ff7b00;
+        }
+      }
+
+      &.active {
+        color: #fff;
+        font-weight: 600;
+      }
+
+      & + .breadcrumb-item::before {
+        color: rgba(255, 255, 255, 0.4);
+        content: "/";
+      }
+    }
+  }
+
+  .section-title {
+    font-family: Gilroy, sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+  }
+
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+ .accordion-item {
+  position: relative;
+  background: linear-gradient(180deg, #1a1a1a, #0f0f0f);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  // hover effekti sadəcə bir az qalxma olsun, narıncı işıq olmasın
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: none; // narıncı parıltını silir
+  }
+}
+
+
+.accordion-button {
+  background: transparent;
+  color: #fff;
+  font-family: Gilroy, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  box-shadow: none;
+  padding: 24px 60px 24px 32px; // sağda ikon üçün yer
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+
+  .emoji {
+    font-size: 28px;
+    margin-right: 6px;
+  }
+
+  .gif {
+    width: 32px;
+    height: 32px;
+    display: none;
+  }
+
+  &:not(.collapsed) {
+    .static {
+      display: none;
+    }
+    .gif {
+      display: inline-block;
+    }
+  }
+
+  /* 🔸 İkon tam mərkəzdə, sabit mövqedə qalır */
+  &::after {
+    content: "+";
+    font-size: 26px;
+    font-weight: 500;
+    color: #ff7b00;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%); // mərkəzdə
+    transition: color 0.3s ease; // yalnız rəng keçidi
+  }
+
+  &:not(.collapsed)::after {
+    content: "−";
+    color: #fff;
+  }
+}
+
+
+  .accordion-body {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0 32px 24px 70px;
+  }
+}
