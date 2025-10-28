@@ -1645,10 +1645,8 @@
 }
 
 .contact-section {
-  background: #000;
   color: #fff;
   position: relative;
-  overflow: hidden;
   padding: 160px 0 120px;
   /* 📦 Container */
   /* 🌀 Orta dekor (şəkil) */
@@ -2006,7 +2004,7 @@
 }
 .projects-section .project-card img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
@@ -2666,9 +2664,6 @@
 }
 
 .footer {
-  background: linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.6));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   color: #bbb;
   font-family: "Poppins", sans-serif;

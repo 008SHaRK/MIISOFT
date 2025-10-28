@@ -12,12 +12,6 @@ $font-family: "Poppins", sans-serif;
 $social-hover-color: $primary-color;
 
 .footer {
-  background: linear-gradient(
-    rgba(255, 255, 255, 0.05),
-    rgba(0, 0, 0, 0.6)
-  ); // ✨ yüngül şəffaf gradient
-  backdrop-filter: blur(12px); // 💫 blur effekti
-  -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   color: $text-color;
   font-family: $font-family;
