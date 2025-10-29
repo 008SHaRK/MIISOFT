@@ -89,23 +89,26 @@
       letter-spacing: 0.4px;
       color: rgba(255, 255, 255, 0.75);
     }
+.num {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  align-self: flex-start;
+  margin-top: auto;
+  transition: all 0.3s ease; // 🔹 yumşaq keçid effekti
 
-    .num {
-      display: inline-block;
-      background: #fff;
-      color: #000;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      align-self: flex-start;
-      margin-top: auto;
-    }
+  &:hover {
+    background: $primary-color; // dəyişəni istifadə et (məsələn #ff6700)
+    color: #fff;
+    transform: scale(1.05); // 🔹 azacıq böyüsün (istəyə görə)
+    
+  }
+}
 
-    &:hover {
-      transform: translateY(-8px);
-      border-color: #ff6700;
-    }
 
     .decor {
       position: absolute;
@@ -212,3 +215,4 @@
     }
   }
 }
+

@@ -49,7 +49,7 @@
     flex-direction: column;
     justify-content: flex-start;
     transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -88,17 +88,38 @@
       color: rgba(255, 255, 255, 0.75);
     }
 
-  
+    /* 💡 hover effekti */
     &:hover {
-      transform: translateY(-8px) scale(1.02);
+      border-radius: 24px; /* 🔸 radius qalır (kart forması) */
+      border-color: rgba(255, 103, 0, 0.6); /* 🔸 narıncı parıltılı sərhəd */
+      box-shadow: 0 0 25px 4px rgba(255, 103, 0, 0.35); /* 🔸 parlayan effekt */
+      background: rgba(255, 255, 255, 0.08); /* azca açıq fon */
+      transform: none; /* heç bir hərəkət yoxdur */
+    }
+
+    /* 💡 hover zamanı içə doğru parıltı (istəyə görə) */
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
       border: 1px solid transparent;
-      border-image: linear-gradient(
-          313.47deg,
-          rgba(255, 103, 0, 0.35) 0.99%,
-          rgba(255, 255, 255, 0.2) 98.78%
+      background: linear-gradient(
+          313deg,
+          rgba(255, 103, 0, 0.6),
+          rgba(255, 255, 255, 0.1)
         )
-        1;
-      box-shadow: 0 0 25px 4px rgba(255, 103, 0, 0.25); /* 🔸 yuvarlaq, soft parıltı */
+        border-box;
+      mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover::before {
+      opacity: 1;
     }
   }
 
@@ -113,6 +134,7 @@
 
   @media (max-width: 768px) {
     padding: 100px 40px;
+
     .solutions-grid {
       grid-template-columns: 1fr;
       gap: 20px;

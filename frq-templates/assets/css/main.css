@@ -448,10 +448,12 @@
   border-radius: 8px;
   align-self: flex-start;
   margin-top: auto;
+  transition: all 0.3s ease;
 }
-.why-us-section .why-card:hover {
-  transform: translateY(-8px);
-  border-color: #ff6700;
+.why-us-section .why-card .num:hover {
+  background: #ff6600;
+  color: #fff;
+  transform: scale(1.05);
 }
 .why-us-section .why-card .decor {
   position: absolute;
@@ -844,10 +846,12 @@
   flex-direction: column;
   justify-content: flex-start;
   transition: all 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+  /* 💡 hover effekti */
+  /* 💡 hover zamanı içə doğru parıltı (istəyə görə) */
 }
 .solutions-section .solution-card .icon-bg {
   width: 52px;
@@ -880,10 +884,27 @@
   color: rgba(255, 255, 255, 0.75);
 }
 .solutions-section .solution-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  border-radius: 24px; /* 🔸 radius qalır (kart forması) */
+  border-color: rgba(255, 103, 0, 0.6); /* 🔸 narıncı parıltılı sərhəd */
+  box-shadow: 0 0 25px 4px rgba(255, 103, 0, 0.35); /* 🔸 parlayan effekt */
+  background: rgba(255, 255, 255, 0.08); /* azca açıq fon */
+  transform: none; /* heç bir hərəkət yoxdur */
+}
+.solutions-section .solution-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
   border: 1px solid transparent;
-  border-image: linear-gradient(313.47deg, rgba(255, 103, 0, 0.35) 0.99%, rgba(255, 255, 255, 0.2) 98.78%) 1;
-  box-shadow: 0 0 25px 4px rgba(255, 103, 0, 0.25); /* 🔸 yuvarlaq, soft parıltı */
+  background: linear-gradient(313deg, rgba(255, 103, 0, 0.6), rgba(255, 255, 255, 0.1)) border-box;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.solutions-section .solution-card:hover::before {
+  opacity: 1;
 }
 @media (max-width: 1200px) {
   .solutions-section {
@@ -1373,10 +1394,8 @@
   position: relative;
   overflow: hidden;
   padding: 100px 0;
-  /* Başlıqlar */
-  /* 📐 Grid düzülüş */
-  /* 🧩 Kartlar */
-  /* 🌀 Dekor obyekti */
+  /* === PROJECT CARD === */
+  /* 🔁 Shine animasiyaları */
   /* 📱 Mobil uyğunlaşma */
 }
 .projects-section .section-title {
@@ -1390,82 +1409,145 @@
   font-size: 14px;
   margin-top: 4px;
 }
-.projects-section .btn {
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  padding: 8px 24px;
-  transition: all 0.3s ease;
-}
-.projects-section .btn:hover {
-  background: #ff7b00;
-  border-color: #ff7b00;
-  color: #fff;
-}
-.projects-section .projects-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: 365px 365px;
-  gap: 24px;
-  margin-top: 48px;
-}
 .projects-section .project-card {
+  position: relative;
   border-radius: 24px;
   overflow: hidden;
-  background: transparent;
-  position: relative;
-  transition: transform 0.4s ease;
-  width: 100%;
-  height: 100%;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  isolation: isolate;
+  /* ✨ Müasir parlayan işıq effekti */
+  /* === Overlay yazılar === */
 }
 .projects-section .project-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 24px;
-  transition: transform 0.4s ease;
+  transition: all 0.6s ease;
+  z-index: 1;
+  position: relative;
 }
 .projects-section .project-card:hover img {
-  transform: scale(1.04);
+  transform: scale(1.05);
+  filter: brightness(0.45) contrast(1.15);
 }
-.projects-section .project-card.orange {
-  grid-column: 1/2;
-  grid-row: 1/2;
-}
-.projects-section .project-card.pink {
-  grid-column: 2/3;
-  grid-row: 1/2;
-}
-.projects-section .project-card.dark {
-  grid-column: 1/2;
-  grid-row: 2/3;
-}
-.projects-section .project-card.green {
-  grid-column: 2/3;
-  grid-row: 2/3;
-}
-.projects-section .decor-object {
+.projects-section .project-card::before {
+  content: "";
   position: absolute;
-  bottom: 30px;
-  left: 10px;
+  top: 0;
+  left: -220%;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(20px) saturate(180%);
+  transform: skewX(-25deg);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.projects-section .project-card:hover::before {
+  opacity: 1;
+  animation: shineModern 1.1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.projects-section .project-card:not(:hover)::before {
+  animation: shineReturn 0.6s ease-in-out forwards;
+}
+.projects-section .project-card .project-info {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
   z-index: 3;
 }
-.projects-section .decor-object img {
-  width: 200px;
-  opacity: 0.4;
+.projects-section .project-card .project-info h3 {
+  font-family: Gilroy, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.projects-section .project-card .project-info p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 20px;
+  max-width: 320px;
+}
+.projects-section .project-card .project-info .view-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(6px);
+}
+.projects-section .project-card .project-info .view-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.18);
+}
+.projects-section .project-card:hover .project-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+.projects-section .project-card:not(:hover) .project-info {
+  opacity: 0;
+  transform: translateY(30px);
+}
+@keyframes shineModern {
+  0% {
+    left: -220%;
+    opacity: 0.2;
+    filter: blur(18px) brightness(0.7);
+  }
+  35% {
+    opacity: 1;
+    filter: blur(12px) brightness(1.3);
+  }
+  70% {
+    filter: blur(8px) brightness(1.1);
+  }
+  100% {
+    left: 180%;
+    opacity: 0;
+    filter: blur(18px) brightness(0.8);
+  }
+}
+@keyframes shineReturn {
+  0% {
+    left: 180%;
+    opacity: 0.3;
+  }
+  100% {
+    left: -220%;
+    opacity: 0;
+  }
 }
 @media (max-width: 992px) {
-  .projects-section .projects-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 16px;
+  .projects-section .section-title {
+    font-size: 32px;
   }
   .projects-section .project-card {
     height: auto;
     aspect-ratio: 16/9;
   }
-  .projects-section .section-title {
-    font-size: 32px;
+  .projects-section .project-info h3 {
+    font-size: 18px;
+  }
+  .projects-section .project-info p {
+    font-size: 13px;
   }
 }
 
@@ -2672,6 +2754,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  /* 📱 Responsive */
 }
 .footer .container {
   width: 100%;
@@ -2717,6 +2800,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* === Sosial ikonlar (Contact-us ilə eyni) === */
 }
 .footer .footer-bottom p {
   margin: 0;
@@ -2727,16 +2811,31 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 15px;
+  gap: 16px;
 }
 .footer .footer-bottom .social-icons a {
-  color: #aaa;
-  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.footer .footer-bottom .social-icons a img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(1);
   transition: all 0.3s ease;
 }
 .footer .footer-bottom .social-icons a:hover {
-  color: #ff6700;
-  transform: translateY(-2px);
+  background: #ff6700; /* 🔸 narıncı fon */
+  transform: scale(1.05);
+}
+.footer .footer-bottom .social-icons a:hover img {
+  filter: brightness(10); /* ağ ikon effekti */
 }
 @media (max-width: 992px) {
   .footer .container {

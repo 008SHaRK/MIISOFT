@@ -81,26 +81,44 @@ $social-hover-color: $primary-color;
       color: $text-color;
     }
 
+    /* === Sosial ikonlar (Contact-us ilə eyni) === */
     .social-icons {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 15px;
+      gap: 16px;
 
       a {
-        color: $link-color;
-        font-size: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
         transition: all 0.3s ease;
 
+        img {
+          width: 18px;
+          height: 18px;
+          filter: brightness(1);
+          transition: all 0.3s ease;
+        }
+
         &:hover {
-          color: $social-hover-color;
-          transform: translateY(-2px);
+          background: $primary-color; /* 🔸 narıncı fon */
+          transform: scale(1.05);
+
+          img {
+            filter: brightness(10); /* ağ ikon effekti */
+          }
         }
       }
     }
   }
 
-  // 📱 Responsive
+  /* 📱 Responsive */
   @media (max-width: 992px) {
     .container {
       padding: 0 40px;
