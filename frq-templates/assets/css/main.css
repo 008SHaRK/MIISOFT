@@ -1468,6 +1468,7 @@
   transform: translateY(30px);
   transition: opacity 0.45s ease, transform 0.45s ease;
   z-index: 3;
+  /* 🔘 VIEW BUTTON – border tam silindi */
 }
 .projects-section .project-card .project-info h3 {
   font-family: Gilroy, sans-serif;
@@ -1486,7 +1487,7 @@
   padding: 10px 22px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: none;
   color: #fff;
   font-size: 14px;
   font-weight: 600;
